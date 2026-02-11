@@ -1,0 +1,35 @@
+{
+  "name": "beautiful-mermaid-mcp",
+  "version": "0.1.0",
+  "description": "MCP for creating svg and ascii mermaid diagrams",
+  "private": true,
+  "type": "module",
+  "bin": {
+    "beautiful-mermaid-mcp": "./dist/index.js"
+  },
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "pkgroll && node -e \"require('fs').chmodSync('dist/index.js', '755')\"",
+    "prepare": "npm run build",
+    "watch": "pkgroll --watch",
+    "inspector": "npx @modelcontextprotocol/inspector dist/index.js"
+  },
+  "exports": {
+    ".": {
+      "import": "./dist/index.js"
+    }
+  },
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.26.0",
+    "beautiful-mermaid": "^0.1.3",
+    "zod": "^4.3.6"
+  },
+  "devDependencies": {
+    "@types/node": "^25.2.3",
+    "pkgroll": "^2.5.2",
+    "prettier": "^3.2.5",
+    "typescript": "^5.3.3"
+  }
+}
