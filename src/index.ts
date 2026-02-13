@@ -6,18 +6,10 @@ import { renderMermaidAscii } from 'beautiful-mermaid'
 import pkg from '../package.json' with { type: 'json' }
 import exampleDiagrams from './example-diagrams.js'
 
-const server = new McpServer(
-  {
-    name: 'mermaid-ascii',
-    version: pkg.version,
-  },
-  {
-    instructions: `When calling tools, the output of tools is often
-    hidden from the user. Therefore it is important that the content
-    returned by tools is always included in the
-    final response to the user.`,
-  }
-)
+const server = new McpServer({
+  name: 'mermaid-ascii',
+  version: pkg.version,
+})
 
 // Define a tool the LLM can invoke
 server.registerTool(
